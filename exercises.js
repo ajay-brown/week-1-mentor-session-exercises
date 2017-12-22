@@ -6,6 +6,18 @@
  * ie: "cat" => "tac"
  */
 
+ function firstReverse(str) {
+     if (typeof str === 'string') {
+     var splitted = str.split(''); //string to array
+    var array = splitted.reverse(); //reverse array
+    var result = array.join(''); //joins array to string
+    return result;
+     } else {
+         return null
+     }
+
+    };
+
  /** Function: alphaOrder
  * The function will take the str parameter being passed in and
  * return the string in alphabetical order
@@ -13,6 +25,18 @@
  * @return {string} in alphabetical order
  * ie: "cake" => "acek"
  */
+
+function alphaOrder(str) {
+ if (typeof str === "string") {
+     var splitted = str.split('')
+     var alpha = splitted.sort();
+     var result = alpha.join("");
+     return result;
+    
+   } else {
+       return null
+   }
+ }
 
  /** Function: vowelCount
  * The function will take the str parameter being passed in and
@@ -22,6 +46,22 @@
  * ie: "oreo" => 3
  */
 
+ function vowelCount(str) {
+    if (typeof str === "string") {
+       var toArray = str.split(''); //creates array of string
+       var counter = 0; 
+       for (var i=0; i < str.length; i++) { //iterate over array to find if string has vowels
+            if (str[i] === 'a' || str[i] === 'i' || str[i] === 'o' ||str[i] === 'e' ||str[i] === 'u'){
+                counter++; //add to and return 
+                
+        }
+     
+            }
+            return counter;
+      } else {
+          return null
+      }
+ }
  /** Function: timeConvert
  * The function will take the str parameter representing the amount of minutes being passed in and
  * return the number of hours and minutes. Seperate the number of hours
@@ -30,6 +70,17 @@
  * @return {string} as hours:minutes
  * ie: 68 => 1:8
  */
+function timeConvert(num) {
+ if (isNaN(num)) {
+     return null;
+ } else {
+ var hours = Math.floor(num / 60);
+ var min = num % 60;
+ var result = hours + ":" + min;
+ return result.toString();
+ }
+
+}
 
  /** Function: repeatString
  * The function will take in two parameters and repeat a given string (first argument)
@@ -39,7 +90,13 @@
  * @return {string} repeated num times
  * i.e repeatString("money", 3) => "moneymoneymoney".
  */
-
+function repeatString(str, num) {
+    if (isNaN(num) || typeof str != "string" || Math.sign(num) === -1) {
+        return null;  
+    } else {
+            return str.repeat(num);
+    }
+}
 
 /**
  * Below here we see a module.exports which is set to an object with a bunch of keys.
@@ -56,9 +113,9 @@
  */
 
 module.exports = {
-    firstReverse: null,
-    alphaOrder: null,
-    vowelCount: null,
-    timeConvert: null,
-    repeatString: null
+    firstReverse: firstReverse,
+   alphaOrder: alphaOrder,
+   vowelCount: vowelCount,
+   timeConvert: timeConvert,
+   repeatString: repeatString
 }
